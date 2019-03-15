@@ -1,0 +1,23 @@
+body{
+    background-image: url(../images/zig-zag-wool.png)
+}
+
+.navbar{
+    opacity: .7;
+    width: 100%;
+}
+
+.nav-header{
+    color: rgba(245, 171, 226, 0.336);
+    font-family: 'Poiret One', cursive;
+    font-size: 2em;
+    letter-spacing: .3em;
+}
+
+.btn-group{
+    margin: auto 0;
+}
+
+.btn{
+    border-right: 
+}
