@@ -44,7 +44,7 @@ $( document ).ready(function() {
 
     
 
-    $("button").on("click", function() {
+    $("#new-categories").on("click", "button", function() {
         
         var gifName = $(this).attr("gif-name");
 
@@ -58,34 +58,32 @@ $( document ).ready(function() {
             method: "GET"
         })
         .then(function(response) {
-
+            console.log(response);
             var results = response.data;
             console.log(results);
             for (var i = 0; i < results.length; i++) {
-                console.log(results);
+                //console.log(results[i]);
                 if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-                    console.log(results);
+                    //console.log(results[i].rating);
 
-                    // var gifDiv = $("<div>");
+                    var gifDiv = $("<div>");
 
-                    // var rating = results[i].rating;
-                    // console.log(results);
-                    // var p = $("<p>").text("Rating: " + rating);
+                    var rating = results[i].rating;
+                    console.log(rating);
+                    var p = $("<p>").text("Rating: " + rating);
 
-                    // var gifImage = $("<img>");
+                    var gifImage = $("<img>");
 
-                    // gifImage.attr("src", results[i].images.fixed_height.url);
-                    // console.log(results);
-                    // gifDiv.append(p);
-                    // gifDiv.append(gifImage);
+                    gifImage.attr("src", results[i].images.fixed_height.url);
+                    //console.log(results[i]);
+                    gifDiv.append(p);
+                    gifDiv.append(gifImage);
 
-                    // $("#gifs-here").prepend(gifDiv);
+                    $("#gifs-here").prepend(gifDiv);
 
                 
-                    }
-
                 }
+            }
         });
     });
-
 });
