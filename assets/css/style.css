@@ -14,10 +14,19 @@ body{
     letter-spacing: .3em;
 }
 
+.container{
+    width: 70%;
+    margin: auto 0;
+}
+
 .btn-group{
     margin: auto 0;
 }
 
 .btn{
     border-right: 
+}
+
+p{
+    color: white;
 }

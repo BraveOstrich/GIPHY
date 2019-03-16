@@ -58,32 +58,51 @@ $( document ).ready(function() {
             method: "GET"
         })
         .then(function(response) {
-            console.log(response);
+            
             var results = response.data;
-            console.log(results);
+            
             for (var i = 0; i < results.length; i++) {
-                //console.log(results[i]);
+                console.log(results[i]);
                 if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-                    //console.log(results[i].rating);
 
                     var gifDiv = $("<div>");
 
                     var rating = results[i].rating;
-                    console.log(rating);
+                    
                     var p = $("<p>").text("Rating: " + rating);
-
+                    
                     var gifImage = $("<img>");
+                    gifImage.attr("src", results[i].images.fixed_height_still.url);
+                    gifImage.attr({"data-animate" : results[i].images.fixed_height.url});
+                    gifImage.attr({"data-state" : "still"});
+                    gifImage.attr({"data-still" : results[i].images.fixed_height_still.url});
+                    
 
-                    gifImage.attr("src", results[i].images.fixed_height.url);
-                    //console.log(results[i]);
-                    gifDiv.append(p);
+                    $(gifImage).addClass("gif");
+                    
                     gifDiv.append(gifImage);
+                    gifDiv.append(p);
+                    
+                    $("#home-of-the-gifs").prepend(gifDiv);
 
-                    $("#gifs-here").prepend(gifDiv);
+                    
 
                 
                 }
             }
         });
+
+        $("#home-of-the-gifs").on("click", ".gif", function() {
+            
+            var state = $(this).attr("data-state");
+            
+            if (state === "still") {
+                $(this).attr("src", $(this).attr("data-animate"));
+                $(this).attr("data-state", "animate");
+            } else {
+                $(this).attr("src", $(this).attr("data-still"));
+                $(this).attr("data-state", "still");
+            }
+    });
     });
 });
