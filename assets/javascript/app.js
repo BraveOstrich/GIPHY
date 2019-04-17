@@ -42,7 +42,7 @@ $( document ).ready(function() {
         $("#form-text").val("");
     });
 
-    
+
 
     $("#new-categories").on("click", "button", function() {
         
@@ -63,7 +63,7 @@ $( document ).ready(function() {
             
             for (var i = 0; i < results.length; i++) {
                 console.log(results[i]);
-                if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                if (results[i].rating) {
 
                     var gifDiv = $("<div>");
 
@@ -81,7 +81,8 @@ $( document ).ready(function() {
                     $(gifImage).addClass("gif");
                     
                     gifDiv.append(gifImage);
-                    gifDiv.append(p);
+                    // gifDiv.append(p);
+                    gifDiv.addClass("flex-wrap")
                     
                     $("#home-of-the-gifs").prepend(gifDiv);
 

@@ -30,3 +30,17 @@ body{
 p{
     color: white;
 }
+
+.flex-wrap{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+
+img{
+    border-radius: 10px;
+    border-style: ridge;
+    border-width: 5px;
+    border-color: gray;
+}
