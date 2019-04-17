@@ -30,3 +30,7 @@ body{
 p{
     color: white;
 }
+
+.flex-wrap{
+    margin: 10px;
+}
