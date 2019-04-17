@@ -43,4 +43,5 @@ img{
     border-style: ridge;
     border-width: 5px;
     border-color: gray;
+    -webkit-border-radius: 10px;
 }
